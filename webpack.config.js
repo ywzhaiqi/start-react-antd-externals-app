@@ -22,7 +22,22 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' }
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      },
     ]
+  },
+  devServer: {
+    //https://webpack.github.io/docs/webpack-dev-server.html#proxy
+    //proxy: {
+    //  '/api': {
+    //    target: 'http://jsonplaceholder.typicode.com/',
+    //    changeOrigin: true,
+    //    auth: 'NAME:PASSWORD',
+    //    pathRewrite: { "^/api" : "" }
+    //  }
+    //}
   }
 }
